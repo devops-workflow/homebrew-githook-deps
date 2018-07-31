@@ -1,0 +1,35 @@
+---
+os: osx
+osx_image: xcode9.1
+
+before_install:
+  - brew update
+  - brew outdated
+  - brew tap rockyluke/devops
+
+install:
+  - ruby --version
+  - brew install flint
+  - brew install git-sweep
+  - brew install gitlint
+  - brew install markdownlint
+  - brew install puppet-lint
+  # - brew install rubocop
+  - brew install yaml-lint
+  - brew install yamllint
+
+script:
+  - flint --help
+  - git-sweep --help
+  - gitlint --help
+  - mdl --help
+  - puppet-lint --help
+  # - rubocop --help
+  - yaml-lint
+  - yamllint --help
+
+notifications:
+  email:
+    on_success: never
+    on_failure: always
+# EOF
